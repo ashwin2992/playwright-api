@@ -1,0 +1,220 @@
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="16.618601">
+<testsuite name="delete_api_request_09.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="2.037" errors="0">
+<testcase name="Create DELETE api request in playwright" classname="delete_api_request_09.spec.js" time="2.037">
+<system-out>
+<![CDATA[[ { bookingid: [33m1961[39m } ]
+{ token: [32m'f0add82dc80f1bd'[39m }
+{
+  firstname: [32m'postman'[39m,
+  lastname: [32m'rest assured'[39m,
+  totalprice: [33m150[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+  additionalneeds: [32m'Breakfast'[39m
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="get_api_request_05.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.611" errors="0">
+<testcase name="Create get with query parameter API request using dynamic json request body" classname="get_api_request_05.spec.js" time="0.611">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2733[39m,
+  booking: {
+    firstname: [32m'Peggy'[39m,
+    lastname: [32m'Towne'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-07-04'[39m, checkout: [32m'2026-07-09'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+==========================================
+{
+  bookingid: [33m2733[39m,
+  booking: {
+    firstname: [32m'Peggy'[39m,
+    lastname: [32m'Towne'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-07-04'[39m, checkout: [32m'2026-07-09'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="patch_api_request_08.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.994" errors="0">
+<testcase name="Patch api request using static body " classname="patch_api_request_08.spec.js" time="0.994">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2740[39m,
+  booking: {
+    firstname: [32m'AshwinJ'[39m,
+    lastname: [32m'NetalkarJ'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+============================
+[ { bookingid: [33m1961[39m } ]
+{ token: [32m'f59c3744c6023ad'[39m }
+{
+  firstname: [32m'playwright'[39m,
+  lastname: [32m'api testing'[39m,
+  totalprice: [33m150[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+  additionalneeds: [32m'orange'[39m
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_api_request_01.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.255" errors="0">
+<testcase name="Create post API request using static request body" classname="post_api_request_01.spec.js" time="0.255">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2748[39m,
+  booking: {
+    firstname: [32m'Ashwin'[39m,
+    lastname: [32m'Netalkar'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+{
+  bookingid: [33m2748[39m,
+  booking: {
+    firstname: [32m'Ashwin'[39m,
+    lastname: [32m'Netalkar'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_api_request_02.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.286" errors="0">
+<testcase name="Create post API request using static request body" classname="post_api_request_02.spec.js" time="0.286">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2753[39m,
+  booking: {
+    firstname: [32m'AshwinJ'[39m,
+    lastname: [32m'NetalkarJ'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+{
+  bookingid: [33m2753[39m,
+  booking: {
+    firstname: [32m'AshwinJ'[39m,
+    lastname: [32m'NetalkarJ'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_api_request_03.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.268" errors="0">
+<testcase name="Create post API request using dynamic request body" classname="post_api_request_03.spec.js" time="0.268">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2757[39m,
+  booking: {
+    firstname: [32m'Mason'[39m,
+    lastname: [32m'Klein'[39m,
+    totalprice: [33m5462[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-07-04'[39m, checkout: [32m'2026-07-09'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="post_api_request_04.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.307" errors="0">
+<testcase name="Create post API request using dynamic json request body" classname="post_api_request_04.spec.js" time="0.307">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2767[39m,
+  booking: {
+    firstname: [32m'Felix'[39m,
+    lastname: [32m'Roob'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-07-04'[39m, checkout: [32m'2026-07-09'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="put_api_request_07.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.971" errors="0">
+<testcase name="Create Put api request using static body " classname="put_api_request_07.spec.js" time="0.971">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2772[39m,
+  booking: {
+    firstname: [32m'AshwinJ'[39m,
+    lastname: [32m'NetalkarJ'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-05-01'[39m, checkout: [32m'2026-05-10'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+[ { bookingid: [33m1961[39m }, { bookingid: [33m2740[39m } ]
+{ token: [32m'74ded9b4890095d'[39m }
+{
+  firstname: [32m'specflow'[39m,
+  lastname: [32m'easyrepro'[39m,
+  totalprice: [33m1000[39m,
+  depositpaid: [33mtrue[39m,
+  bookingdates: { checkin: [32m'2018-01-01'[39m, checkout: [32m'2019-01-01'[39m },
+  additionalneeds: [32m'orange'[39m
+}
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="queryparam_api_request_06.spec.js" timestamp="2026-07-04T07:45:44.479Z" hostname="api-tests-javascript" tests="1" failures="0" skipped="0" time="0.53" errors="0">
+<testcase name="Create GET with query parameter API request using dynamic json request body" classname="queryparam_api_request_06.spec.js" time="0.53">
+<system-out>
+<![CDATA[{
+  bookingid: [33m2789[39m,
+  booking: {
+    firstname: [32m'Edmund'[39m,
+    lastname: [32m'Towne'[39m,
+    totalprice: [33m150[39m,
+    depositpaid: [33mtrue[39m,
+    bookingdates: { checkin: [32m'2026-07-04'[39m, checkout: [32m'2026-07-09'[39m },
+    additionalneeds: [32m'Breakfast'[39m
+  }
+}
+==========================================
+[ { bookingid: [33m2789[39m } ]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

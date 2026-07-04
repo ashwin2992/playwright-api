@@ -1,0 +1,565 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/app/node_modules/@playwright/test/cli.js",
+      "test"
+    ],
+    "configFile": "/app/playwright.config.js",
+    "rootDir": "/app/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api-tests-javascript",
+        "name": "api-tests-javascript",
+        "testDir": "/app/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "always",
+          "outputFolder": "html-report"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "line",
+        null
+      ],
+      [
+        "dot",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "results.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results.json"
+        }
+      ],
+      [
+        "/app/node_modules/allure-playwright/dist/cjs/index.js",
+        null
+      ],
+      [
+        "/app/my-custom-reporter.js",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "delete_api_request_09.spec.js",
+      "file": "delete_api_request_09.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create DELETE api request in playwright",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2037,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ { bookingid: \u001b[33m1961\u001b[39m } ]\n"
+                    },
+                    {
+                      "text": "{ token: \u001b[32m'f0add82dc80f1bd'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{\n  firstname: \u001b[32m'postman'\u001b[39m,\n  lastname: \u001b[32m'rest assured'\u001b[39m,\n  totalprice: \u001b[33m150\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n  additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:47.386Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0405a8d385a44501627e-937b199f34a27e4ea044",
+          "file": "delete_api_request_09.spec.js",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "get_api_request_05.spec.js",
+      "file": "get_api_request_05.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create get with query parameter API request using dynamic json request body",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 611,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2733\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Peggy'\u001b[39m,\n    lastname: \u001b[32m'Towne'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-07-04'\u001b[39m, checkout: \u001b[32m'2026-07-09'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "==========================================\n"
+                    },
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2733\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Peggy'\u001b[39m,\n    lastname: \u001b[32m'Towne'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-07-04'\u001b[39m, checkout: \u001b[32m'2026-07-09'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:52.066Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "37195fef1807f6c3339e-615b77bfc491e26baeae",
+          "file": "get_api_request_05.spec.js",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "patch_api_request_08.spec.js",
+      "file": "patch_api_request_08.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Patch api request using static body ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 994,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2740\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'AshwinJ'\u001b[39m,\n    lastname: \u001b[32m'NetalkarJ'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "============================\n"
+                    },
+                    {
+                      "text": "[ { bookingid: \u001b[33m1961\u001b[39m } ]\n"
+                    },
+                    {
+                      "text": "{ token: \u001b[32m'f59c3744c6023ad'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{\n  firstname: \u001b[32m'playwright'\u001b[39m,\n  lastname: \u001b[32m'api testing'\u001b[39m,\n  totalprice: \u001b[33m150\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n  additionalneeds: \u001b[32m'orange'\u001b[39m\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:52.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6335f6d623dba72cfa9d-098869121ff695cf348b",
+          "file": "patch_api_request_08.spec.js",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_api_request_01.spec.js",
+      "file": "post_api_request_01.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create post API request using static request body",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 255,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2748\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Ashwin'\u001b[39m,\n    lastname: \u001b[32m'Netalkar'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2748\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Ashwin'\u001b[39m,\n    lastname: \u001b[32m'Netalkar'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:53.944Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dda644ebc17b1dfd82db-ef6eac0225b5edbd60a0",
+          "file": "post_api_request_01.spec.js",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_api_request_02.spec.js",
+      "file": "post_api_request_02.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create post API request using static request body",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 286,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2753\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'AshwinJ'\u001b[39m,\n    lastname: \u001b[32m'NetalkarJ'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2753\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'AshwinJ'\u001b[39m,\n    lastname: \u001b[32m'NetalkarJ'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:54.447Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8bc533feffec02e9bf63-fb3eb8cc84a209e0b6ed",
+          "file": "post_api_request_02.spec.js",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_api_request_03.spec.js",
+      "file": "post_api_request_03.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create post API request using dynamic request body",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 268,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2757\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Mason'\u001b[39m,\n    lastname: \u001b[32m'Klein'\u001b[39m,\n    totalprice: \u001b[33m5462\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-07-04'\u001b[39m, checkout: \u001b[32m'2026-07-09'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:54.823Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6220bc5047d326b73b7d-de6a6dfa92fce63d4eff",
+          "file": "post_api_request_03.spec.js",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "post_api_request_04.spec.js",
+      "file": "post_api_request_04.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create post API request using dynamic json request body",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 307,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2767\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Felix'\u001b[39m,\n    lastname: \u001b[32m'Roob'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-07-04'\u001b[39m, checkout: \u001b[32m'2026-07-09'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:55.455Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c8d56b60ddc4a2451354-186d808827c3be956c56",
+          "file": "post_api_request_04.spec.js",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "put_api_request_07.spec.js",
+      "file": "put_api_request_07.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create Put api request using static body ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 971,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2772\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'AshwinJ'\u001b[39m,\n    lastname: \u001b[32m'NetalkarJ'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-05-01'\u001b[39m, checkout: \u001b[32m'2026-05-10'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "[ { bookingid: \u001b[33m1961\u001b[39m }, { bookingid: \u001b[33m2740\u001b[39m } ]\n"
+                    },
+                    {
+                      "text": "{ token: \u001b[32m'74ded9b4890095d'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "{\n  firstname: \u001b[32m'specflow'\u001b[39m,\n  lastname: \u001b[32m'easyrepro'\u001b[39m,\n  totalprice: \u001b[33m1000\u001b[39m,\n  depositpaid: \u001b[33mtrue\u001b[39m,\n  bookingdates: { checkin: \u001b[32m'2018-01-01'\u001b[39m, checkout: \u001b[32m'2019-01-01'\u001b[39m },\n  additionalneeds: \u001b[32m'orange'\u001b[39m\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:55.893Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1637ac4e1da8a647bdb9-187514a4b149205043ac",
+          "file": "put_api_request_07.spec.js",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "queryparam_api_request_06.spec.js",
+      "file": "queryparam_api_request_06.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create GET with query parameter API request using dynamic json request body",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api-tests-javascript",
+              "projectName": "api-tests-javascript",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 530,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "{\n  bookingid: \u001b[33m2789\u001b[39m,\n  booking: {\n    firstname: \u001b[32m'Edmund'\u001b[39m,\n    lastname: \u001b[32m'Towne'\u001b[39m,\n    totalprice: \u001b[33m150\u001b[39m,\n    depositpaid: \u001b[33mtrue\u001b[39m,\n    bookingdates: { checkin: \u001b[32m'2026-07-04'\u001b[39m, checkout: \u001b[32m'2026-07-09'\u001b[39m },\n    additionalneeds: \u001b[32m'Breakfast'\u001b[39m\n  }\n}\n"
+                    },
+                    {
+                      "text": "==========================================\n"
+                    },
+                    {
+                      "text": "[ { bookingid: \u001b[33m2789\u001b[39m } ]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-04T07:45:57.284Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0afa112f7ad26b5071cf-2e0f6b7b05808842a437",
+          "file": "queryparam_api_request_06.spec.js",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-04T07:45:41.355Z",
+    "duration": 16618.601000000002,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
