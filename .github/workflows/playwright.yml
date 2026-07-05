@@ -1,4 +1,4 @@
-name: Playwright API Tests with Allure Reports
+name: Execute Playwright API Tests on Github Actions with Allure Reports
 
 on:
   push:
@@ -51,7 +51,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: lts/*
 
       - name: Install Allure CLI
         run: npm install -g allure-commandline
