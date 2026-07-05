@@ -30,8 +30,6 @@ module.exports = defineConfig({
     ['list'],
     ['line'],
     ['dot'],
-    ['junit', { outputFile: 'results.xml' }],
-    ['json', { outputFile: 'results.json' }],
     ['allure-playwright'],
     ['./my-custom-reporter.js']
     
