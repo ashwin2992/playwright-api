@@ -2,9 +2,10 @@ const { test, expect } = require('@playwright/test')
 import { stringFormat } from '../utils/common.js'
 import { faker } from '@faker-js/faker';
 const { DateTime } = require('luxon');
-const jsonAPIPostRequestData = require('../testdata/post_request_dynamic_body.json')
+const jsonAPIPostRequestData = require('../testdata/post_request_dynamic_body.json');
+const logger = require('../utils/logger.js');
 
-//post api request using static request body
+//get api request using static request body
 test('Create get with query parameter API request using dynamic json request body', async ({ request }) => {
 
   const firstName = faker.person.firstName();
@@ -15,7 +16,7 @@ test('Create get with query parameter API request using dynamic json request bod
 
   const dynamicformattedString = stringFormat(JSON.stringify(jsonAPIPostRequestData), firstName, lastName, checkInDate, checkOutDate);
 
-
+  logger.info("Get User details API");
   const postAPIResponse = await request.post('/booking', {
 
     data: JSON.parse(dynamicformattedString)
@@ -27,7 +28,8 @@ test('Create get with query parameter API request using dynamic json request bod
   expect(postAPIResponse.status()).toBe(200);
 
   const postAPIResponseBody = await postAPIResponse.json();
-
+  
+  logger.info("Get User details API response body "+JSON.stringify(postAPIResponseBody));
   console.log(postAPIResponseBody);
   const bId = postAPIResponseBody.bookingid;
 
