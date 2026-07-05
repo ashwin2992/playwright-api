@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
+      - name: Install Playwright browsers dependencies
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests (Shard ${{ matrix.shard }})
