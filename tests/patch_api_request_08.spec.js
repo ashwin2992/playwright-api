@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('../fixtures/baseTest.js');
 const postRequest = require('../testdata/post_request_body.json');
 const tokenRequest = require('../testdata/token_request_body.json');
 const patchRequest = require('../testdata/patch_request_body.json'); 
@@ -52,3 +52,4 @@ console.log("============================");
   expect(patchAPIResponse.ok()).toBeTruthy();
   expect(patchAPIResponse.status()).toBe(200);
 });
+

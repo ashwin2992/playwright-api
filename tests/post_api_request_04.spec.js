@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test')
-import { stringFormat } from '../utils/common.js'
-import { faker }  from '@faker-js/faker';
+const { test, expect } = require('../fixtures/baseTest.js')
+const { stringFormat } = require('../utils/common.js');
+const { faker } = require('@faker-js/faker');
 const { DateTime } = require('luxon');
 const jsonAPIPostRequestData = require('../testdata/post_request_dynamic_body.json')
 

@@ -1,5 +1,6 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+const { defineConfig } = require('@playwright/test');
+require('dotenv').config();
 
 /**
  * Read environment variables from file.
@@ -26,21 +27,21 @@ module.exports = defineConfig({
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html', { open: 'always', outputFolder: 'html-report' }],
+    ['html', { open: process.env.CI ? 'never' : 'on-failure', outputFolder: 'html-report' }],
     ['list'],
-    ['line'],
-    ['dot'],
-    ['allure-playwright'],
-    ['./my-custom-reporter.js']
-    
+    ['allure-playwright', { outputFolder: 'allure-results' }],
+    ['./my-custom-reporter.js', { customOption: 'api-framework' }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://restful-booker.herokuapp.com',
+    baseURL: process.env.BASE_URL || 'https://restful-booker.herokuapp.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    extraHTTPHeaders: {
+      Accept: 'application/json'
+    }
   },
 
   /* Configure projects for major browsers */
@@ -48,7 +49,6 @@ module.exports = defineConfig({
 
     {
       name: 'api-tests-javascript',
-      use: { ...devices['Desktop Chrome'] },
     },
     /* 
         {
@@ -89,4 +89,3 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-

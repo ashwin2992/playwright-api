@@ -1,93 +1,132 @@
-# playwright-api
+# Playwright API Framework
 
+JavaScript Playwright API automation framework with enterprise-style request utilities, service classes, Winston logging, Allure reporting, and optional Ollama AI failure analysis.
 
+## Framework Phases
 
-## Getting started
+### Phase 1: Base Playwright API Framework
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- Playwright Test configured for API testing in `playwright.config.js`.
+- Environment-driven `BASE_URL` through `.env`.
+- Shared test fixture in `fixtures/baseTest.js`.
+- API specs live under `tests/`.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+### Phase 2: Enterprise ApiClient
 
-## Add your files
+- `utils/apiClient.js` wraps Playwright `APIRequestContext`.
+- Supports `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+- Centralizes base URL handling, headers, timeout, retry count, response parsing, API context capture, and report attachments.
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+### Phase 3: Winston Logging
 
+- `utils/logger.js` writes console logs plus file logs under `logs/`.
+- Request lifecycle and test lifecycle are logged.
+- Sensitive header-style values are redacted in log messages.
+
+### Phase 4: Allure Integration
+
+- `allure-playwright` reporter is configured in `playwright.config.js`.
+- API request/response exchanges are attached from `ApiClient` through Playwright attachments.
+- Generate and open reports with:
+
+```bash
+npm run allure:generate
+npm run allure:open
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/ashwin2992/playwright-api.git
-git branch -M main
-git push -uf origin main
+
+### Phase 5: Ollama AI Failure Analysis
+
+- `utils/ollama.js` calls a local Ollama server.
+- `utils/aiAnalyzer.js` builds a failure-analysis prompt using the last captured API context and Playwright error.
+- On failed tests, analysis is attached as `ollama-failure-analysis` and saved under `reports/ai-analysis/`.
+- The attachment is file-backed through Playwright `testInfo.attach`, so it is included in Playwright HTML and Allure report artifacts for failed tests.
+- Configure with `.env`:
+
+```ini
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=qwen2.5-coder:7b
+OLLAMA_TIMEOUT_MS=180000
+OLLAMA_NUM_PREDICT=350
+AI_ANALYSIS_ENABLED=true
 ```
 
-## Integrate with your tools
+Run a quick Ollama check:
 
-* [Set up project integrations](https://gitlab.com/ashwin2992/playwright-api/-/settings/integrations)
+```bash
+npm run ollama:smoke
+```
 
-## Collaborate with your team
+### Phase 6: Service Layer
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+- `services/bookingService.js` provides domain-level Restful Booker actions.
+- `tests/booking_service.spec.js` demonstrates service-driven tests using the `bookingService` fixture.
 
-## Test and Deploy
+## Setup
 
-Use the built-in continuous integration in GitLab.
+```bash
+npm install
+```
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+Update `.env` if you want a different API target:
 
-***
+```ini
+BASE_URL=https://restful-booker.herokuapp.com
+API_TIMEOUT_MS=30000
+API_RETRIES=1
+```
 
-# Editing this README
+## Run Tests
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+```bash
+npm test
+```
 
-## Suggestions for a good README
+Show the Playwright HTML report:
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+```bash
+npm run report
+```
 
-## Name
-Choose a self-explaining name for your project.
+## Example Service Test
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+```js
+const { test, expect } = require('../fixtures/baseTest.js');
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+test('Create booking', async ({ bookingService }) => {
+  const response = await bookingService.createBooking({
+    firstname: 'Ashwin',
+    lastname: 'Netalkar',
+    totalprice: 150,
+    depositpaid: true,
+    bookingdates: {
+      checkin: '2026-05-01',
+      checkout: '2026-05-10'
+    },
+    additionalneeds: 'Breakfast'
+  });
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+  expect(response.ok()).toBeTruthy();
+});
+```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Project Structure
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```text
+fixtures/
+  baseTest.js
+hooks/
+  globalHooks.js
+scripts/
+  ollamaSmoke.js
+services/
+  bookingService.js
+testdata/
+tests/
+utils/
+  apiClient.js
+  aiAnalyzer.js
+  apiContext.js
+  common.js
+  logger.js
+  ollama.js
+```

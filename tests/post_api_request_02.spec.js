@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test')
+const { test, expect } = require('../fixtures/baseTest.js')
 const jsonAPIPostRequestData = require('../testdata/post_request_body.json')
 
 

@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test')
-import { stringFormat } from '../utils/common.js'
-import { faker } from '@faker-js/faker';
+const { test, expect } = require('../fixtures/baseTest.js')
+const { stringFormat } = require('../utils/common.js');
+const { faker } = require('@faker-js/faker');
 const { DateTime } = require('luxon');
 const jsonAPIPostRequestData = require('../testdata/post_request_dynamic_body.json');
 const logger = require('../utils/logger.js');
@@ -32,7 +32,7 @@ test('Create get with query parameter API request using dynamic json request bod
   logger.info("Get User details API response body "+JSON.stringify(postAPIResponseBody));
   console.log(postAPIResponseBody);
   const bId = postAPIResponseBody.bookingid;
-
+ 
   // Validate JSON Response - flat keys
   expect(postAPIResponseBody.booking).toHaveProperty('firstname', firstName);
   expect(postAPIResponseBody.booking).toHaveProperty('lastname', lastName);
@@ -44,18 +44,18 @@ test('Create get with query parameter API request using dynamic json request bod
 
   // Optionally add more response validations here
   console.log("==========================================");
-  const getAPIResponse = await request.get('/booking/${bId}');
+  const getAPIResponse = await request.get(`/booking/${bId}`);
 
 
-  const getAPIResponseBody = await postAPIResponse.json();
+  const getAPIResponseBody = await getAPIResponse.json();
 
   console.log(getAPIResponseBody);
-  expect(getAPIResponseBody.booking).toHaveProperty('firstname', firstName);
-  expect(getAPIResponseBody.booking).toHaveProperty('lastname', lastName);
+  expect(getAPIResponseBody).toHaveProperty('firstname', firstName);
+  expect(getAPIResponseBody).toHaveProperty('lastname', lastName);
 
   // Validate Nested JSON Objects
-  expect(getAPIResponseBody.booking.bookingdates).toHaveProperty('checkin', checkInDate);
-  expect(getAPIResponseBody.booking.bookingdates).toHaveProperty('checkout', checkOutDate);
+  expect(getAPIResponseBody.bookingdates).toHaveProperty('checkin', checkInDate);
+  expect(getAPIResponseBody.bookingdates).toHaveProperty('checkout', checkOutDate);
 
 
 });

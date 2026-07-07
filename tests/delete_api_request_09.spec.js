@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('../fixtures/baseTest.js');
 const postRequest = require('../testdata/post_request_body.json');
 const tokenRequest = require('../testdata/token_request_body.json');
 const putRequest = require('../testdata/put_request_body.json');
@@ -64,3 +64,4 @@ test("Create DELETE api request in playwright", async ({ request }) => {
   expect(deleteAPIResponse.status()).toBe(201);
   expect(deleteAPIResponse.statusText()).toBe("Created");
 });
+

@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-import { faker }  from '@faker-js/faker';
+const { test, expect } = require('../fixtures/baseTest.js');
+const { faker } = require('@faker-js/faker');
 const { DateTime } = require('luxon');
 
 
