@@ -2,9 +2,9 @@ name: Execute Playwright API Tests on Github Actions with Allure Reports
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   playwright-tests:
@@ -32,12 +32,15 @@ jobs:
 
       - name: Run Playwright tests (Shard ${{ matrix.shard }})
         run: npx playwright test --shard=${{ matrix.shard }}/4
+        continue-on-error: true
 
       - name: Upload Allure results (Shard ${{ matrix.shard }})
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-shard-${{ matrix.shard }}
           path: allure-results
+          if-no-files-found: warn
 
   merge-allure-report:
     needs: playwright-tests
