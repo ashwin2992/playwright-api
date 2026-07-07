@@ -95,6 +95,7 @@ jobs:
           find downloaded-results -name "*.json" -exec cp {} merged-results/ \;
           find downloaded-results -name "*.txt" -exec cp {} merged-results/ \;
           find downloaded-results -name "*.png" -exec cp {} merged-results/ \;
+          find downloaded-results -name "*.md" -exec cp {} merged-results/ \;
           find downloaded-results -name "*.attach" -exec cp {} merged-results/ \; || true
 
           echo "Merged Files"
