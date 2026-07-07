@@ -29,6 +29,7 @@ module.exports = defineConfig({
   reporter: [
     ['html', { open: process.env.CI ? 'never' : 'on-failure', outputFolder: 'html-report' }],
     ['list'],
+    ['json', { outputFile: 'test-results/results.json' }],
     ['allure-playwright', { outputFolder: 'allure-results' }],
     ['./my-custom-reporter.js', { customOption: 'api-framework' }]
   ],
